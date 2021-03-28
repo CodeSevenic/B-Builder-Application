@@ -9,6 +9,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as burgerBuilderActions from '../../store/actions/actionIndex';
+import axios from '../../axios-orders';
 
 class BurgerBuilder extends Component {
   // constructor(props) {
@@ -119,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withErrorHandler(BurgerBuilder));
+)(withErrorHandler(BurgerBuilder, axios));

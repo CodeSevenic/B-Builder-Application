@@ -22,6 +22,12 @@ export const setIngredients = (ingredients) => {
   };
 };
 
+export const fetchIngredientsFailed = () => {
+  return {
+    type: actionTypes.FETCH_INGREDIENTS_FAILED,
+  };
+};
+
 export const initIngredients = () => {
   return (dispatch) => {
     axios
@@ -29,6 +35,8 @@ export const initIngredients = () => {
       .then((response) => {
         dispatch(setIngredients(response.data));
       })
-      .catch((error) => {});
+      .catch((error) => {
+        dispatch(fetchIngredientsFailed());
+      });
   };
 };
