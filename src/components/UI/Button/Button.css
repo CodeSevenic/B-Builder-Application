@@ -15,6 +15,10 @@
   padding-left: 0;
 }
 
+.Button span {
+  color: rgb(81, 81, 160);
+}
+
 .Button:disabled {
   color: #ccc;
   cursor: not-allowed;
