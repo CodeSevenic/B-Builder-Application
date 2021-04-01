@@ -115,7 +115,7 @@ class Auth extends Component {
       });
     }
 
-    const form = formElementArray.map((formElement) => (
+    let form = formElementArray.map((formElement) => (
       <Input
         key={formElement.id}
         elementType={formElement.config.elementType}
@@ -127,13 +127,17 @@ class Auth extends Component {
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
-    let spinner;
     if (this.props.loading) {
-      spinner = <Spinner />;
+      form = <Spinner />;
+    }
+
+    let errorMessage = null;
+    if (this.props.error) {
+      errorMessage = <p>{this.props.error.message}</p>;
     }
     return (
       <div className={classes.Auth}>
-        {spinner}
+        {errorMessage}
         <form action="" onSubmit={this.submitHandler}>
           {form}
           <Button btnType="Success">SUBMIT</Button>
@@ -149,6 +153,7 @@ class Auth extends Component {
 const mapStateToProps = (state) => {
   return {
     loading: state.auth.loading,
+    error: state.auth.error,
   };
 };
 
