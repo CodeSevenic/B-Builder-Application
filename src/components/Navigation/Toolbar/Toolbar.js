@@ -13,7 +13,7 @@ const toolbar = (props) => {
       <div className={attachedClasses.join(' ')}>
         <Logo />
       </div>
-      <nav className={classes.DesktopOnly}>
+      {/* <nav className={classes.DesktopOnly}> */}
         <NavigationItems isAuthenticated={props.isAuth} />
       </nav>
     </header>
