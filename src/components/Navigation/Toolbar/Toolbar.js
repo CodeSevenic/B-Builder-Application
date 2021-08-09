@@ -9,7 +9,7 @@ const toolbar = (props) => {
   let attachedClasses = [classes.Logo];
   return (
     <header className={classes.Toolbar}>
-      <DrawerToggle clicked={props.drawerToggleClicked} />
+      {/* <DrawerToggle clicked={props.drawerToggleClicked} /> */}
       <div className={attachedClasses.join(' ')}>
         <Logo />
       </div>
